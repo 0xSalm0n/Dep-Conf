@@ -1,4 +1,3 @@
-#source:- https://github.com/007divyachawla/python-dependency-confusion-attack/blob/main/setup.py
 from setuptools import setup
 from setuptools.command.install import install
 import requests
