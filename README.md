@@ -2,7 +2,9 @@
 RCE via Dependency Confusion attack code with payloads for javascript and python.
 
 ## One-liner
+```bash
 find . -type f -name package.json | xargs -n1 -I{} cat {} | jq -r '.dependencies + .devDependencies' | cut -d : -f 1 | tr -d '"|}|{' | sort -u | tr -s "     " | sort -u | xargs -n1 -I{} echo "https://registry.npmjs.org/{}" | grep -v "@" | httpx -status-code -silent -content-length -mc 404
+```
 
 ## Tools
 - https://github.com/tomnomnom/fff
